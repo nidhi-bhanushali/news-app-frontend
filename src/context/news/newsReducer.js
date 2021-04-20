@@ -4,7 +4,7 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT,
     FILTER_NEWS,
-    CLEAR_FILTER
+    CLEAR_FILTER 
 } from '../types';
 
 export default (state , action) => {

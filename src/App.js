@@ -6,9 +6,13 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import './App.css';
 import Navbar from './components/layout/Navbar'
+import NewsState from './context/news/NewsState'
+import AuthState from './context/auth/AuthState'
 
 function App() {
   return (
+    <AuthState>
+    <NewsState>
     <Router>
       <Fragment>
         <Navbar/>
@@ -22,6 +26,8 @@ function App() {
         </div>
       </Fragment>
     </Router>
+    </NewsState>
+    </AuthState>
   );
 }
 

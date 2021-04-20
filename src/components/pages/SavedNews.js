@@ -1,10 +1,17 @@
-import React from 'react'
+import React,{ Fragment , useContext } from 'react'
+import NewsContext from '../../context/news/newsContext'
 
 const SavedNews = () => {
+    const newsContext = useContext(NewsContext); 
+
+    const { news } = newsContext; 
+
     return (
-        <div>
-            <h3>This is the SavedNews component</h3>
-        </div>
+        <Fragment>
+            {news.map(news => (
+                <h3>{news.title}</h3>
+            ))}
+        </Fragment>
     )
 }
 

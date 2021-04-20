@@ -18,12 +18,11 @@ const NewsState = props => {
             id: 1,
             author:'xyz',
             title: 'something related to tech',
-            
         },
         { 
             id: 2,
             name:'abc',
-            email: 'technology',
+            title: 'technology',
             
         },
         { 
