@@ -15,9 +15,9 @@ export const Register = () => {
     const onSubmit = e => {
         e.preventDefault();
         if(name === '' || email === '' || password === '') {
-            alert('Please enter all fields' , 'danger');
+            alert('Please enter all fields');
         }else if(password !== password2){
-            alert('Passwords do not match' , 'danger');
+            alert('Passwords do not match');
         }else{
             console.log('Register submit');
         }  
