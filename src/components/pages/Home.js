@@ -27,8 +27,10 @@ const Home = () => {
             {
                 (newsArticles && loading) ? <h3>Loading...</h3>:(
                     newsArticles.map((newsArticle , index) => (
-                        <div key = {index}>
-                        <h3>{newsArticle.author}</h3>
+                        <div key = {index} className = 'card'>
+                        <img src = {newsArticle.urlToImage} alt = {newsArticle.title}></img>
+                        <a href = {newsArticle.url} target = 'blank'><h2 className='text-primary'>{newsArticle.title}</h2></a>
+                        <h3>Author: {newsArticle.author}</h3>
                         </div>
                     ))
                 ) 
