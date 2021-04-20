@@ -1,7 +1,7 @@
 import React , {Fragment} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home'
-import About from './components/pages/About'
+import SavedNews from './components/pages/SavedNews'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import './App.css';
@@ -15,7 +15,7 @@ function App() {
         <div className = 'container'>
           <Switch>
           <Route exact path = '/' component = {Home}/>
-          <Route exact path = '/about' component = {About}/>
+          <Route exact path = '/saved' component = {SavedNews}/>
           <Route exact path = '/register' component = {Register}/>
           <Route exact path = '/login' component = {Login}/>
           </Switch>
