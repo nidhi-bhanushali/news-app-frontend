@@ -8,6 +8,11 @@ import './App.css';
 import Navbar from './components/layout/Navbar'
 import NewsState from './context/news/NewsState'
 import AuthState from './context/auth/AuthState'
+import setAuthToken from './utils/setAuthToken'
+
+if(localStorage.token){
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   return (
