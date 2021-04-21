@@ -1,8 +1,6 @@
 import {
     ADD_NEWS,
     DELETE_NEWS,
-    SET_CURRENT,
-    CLEAR_CURRENT,
     FILTER_NEWS,
     CLEAR_FILTER,
     NEWS_ERROR,
@@ -27,16 +25,6 @@ export default (state , action) => {
             return {
                 ...state,
                 news: state.news.filter(newsItem => newsItem.id !== action.payload)
-            };
-        case SET_CURRENT:
-            return{
-                ...state,
-                current: action.payload
-            };
-        case CLEAR_CURRENT:
-            return{
-                ...state,
-                current : null
             };
         case FILTER_NEWS:
             return{

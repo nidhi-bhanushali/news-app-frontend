@@ -14,7 +14,7 @@ const SavedNews = () => {
     }, []);
 
     return (
-        <Fragment>
+        <div className = 'grid-3'>
             {news !== null && !loading ? 
             (news.map((news , index) => (
                 <div key = {index}>
@@ -23,7 +23,7 @@ const SavedNews = () => {
             ))) : 
             <Spinner/>
             }
-        </Fragment>
+        </div>
     )
 }
 

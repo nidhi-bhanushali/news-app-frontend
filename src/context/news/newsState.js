@@ -6,18 +6,14 @@ import {
     ADD_NEWS,
     DELETE_NEWS,
     NEWS_ERROR,
-    SET_CURRENT,
-    CLEAR_CURRENT,
     FILTER_NEWS,
     CLEAR_FILTER,
     GET_NEWS,
-    CLEAR_NEWS
 } from '../types';
 
 const NewsState = props => {
     const initialState = {
         news : [],
-        current: null,
         filtered : null,
         error:null
     };
@@ -52,21 +48,6 @@ const NewsState = props => {
         }
     };
 
-    // Delete news
-    const deleteNews = id => {
-        dispatch({ type: DELETE_NEWS , payload: id });
-    };
-
-    // Set Current news
-    const setCurrent = news => {
-        dispatch({ type: SET_CURRENT , payload: news });
-    };
-
-    // Clear Current news
-    const clearCurrent = news => {
-        dispatch({ type: CLEAR_CURRENT });
-    };
-
     // Filter news
     const filterNews = text => {
         dispatch({ type: FILTER_NEWS , payload: text });
@@ -81,13 +62,9 @@ const NewsState = props => {
         <NewsContext.Provider  
         value= {{
             news: state.news,
-            current: state.current,
             filtered: state.filtered,
             error:state.error,
             addNews ,
-            deleteNews,
-            setCurrent,
-            clearCurrent,
             filterNews,
             clearFilter,
             getNews  
