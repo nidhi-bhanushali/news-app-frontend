@@ -1,8 +1,5 @@
 import {
     ADD_NEWS,
-    DELETE_NEWS,
-    FILTER_NEWS,
-    CLEAR_FILTER,
     NEWS_ERROR,
     GET_NEWS 
 } from '../types';
@@ -21,24 +18,6 @@ export default (state , action) => {
             news: [...state.news , action.payload],
             loading: false
         };
-        case DELETE_NEWS:
-            return {
-                ...state,
-                news: state.news.filter(newsItem => newsItem.id !== action.payload)
-            };
-        case FILTER_NEWS:
-            return{
-                ...state,
-                filtered: state.news.filter(newsItem => {
-                    const regex = new RegExp(`${action.payload}`, 'gi');
-                    return newsItem.title.match(regex) || newsItem.author.match(regex);
-                })
-            };
-        case CLEAR_FILTER:
-            return{
-                ...state,
-                filtered : null
-            };
         case NEWS_ERROR:
             return{
                 ...state,

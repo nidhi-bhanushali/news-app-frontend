@@ -1,4 +1,4 @@
-import React,{ Fragment , useContext, useEffect } from 'react'
+import React,{ useContext, useEffect } from 'react'
 import NewsContext from '../../context/news/newsContext'
 import Spinner from '../layout/Spinner'
 import SavedNewsItem from '../pages/SavedNewsItem'
