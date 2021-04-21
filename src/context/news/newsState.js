@@ -9,7 +9,9 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT,
     FILTER_NEWS,
-    CLEAR_FILTER
+    CLEAR_FILTER,
+    GET_NEWS,
+    CLEAR_NEWS
 } from '../types';
 
 const NewsState = props => {
@@ -22,6 +24,17 @@ const NewsState = props => {
 
     const [state, dispatch] = useReducer(newsReducer , initialState);
 
+    // Get news
+    const getNews = async () => {
+        try {
+            const res = await axios.get('/api/news');
+
+            dispatch({ type: GET_NEWS , payload: res.data });
+        } catch (err) {
+            dispatch({ type: NEWS_ERROR, payload: err.message })
+        }
+    }
+
     // Add news
     const addNews = async news => {
         const config = {
@@ -31,7 +44,7 @@ const NewsState = props => {
         }
 
         try {
-            const res = axios.post('/api/news' , news, config);
+            const res = await axios.post('/api/news' , news, config);
 
             dispatch({ type: ADD_NEWS , payload: res.data });
         } catch (err) {
@@ -76,7 +89,8 @@ const NewsState = props => {
             setCurrent,
             clearCurrent,
             filterNews,
-            clearFilter  
+            clearFilter,
+            getNews  
         }}>
             { props.children }
         </NewsContext.Provider>

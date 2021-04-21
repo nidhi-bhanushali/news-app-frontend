@@ -1,3 +1,4 @@
+export const GET_NEWS = 'GET_NEWS';
 export const ADD_NEWS = 'ADD_NEWS';
 export const DELETE_NEWS = 'DELETE_NEWS';
 export const NEWS_ERROR = 'NEWS_ERROR'
@@ -5,6 +6,7 @@ export const SET_CURRENT = 'SET_CURRENT';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const FILTER_NEWS = 'FILTER_NEWS';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
+export const CLEAR_NEWS = 'CLEAR_NEWS';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';

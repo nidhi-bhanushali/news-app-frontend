@@ -5,15 +5,23 @@ import {
     CLEAR_CURRENT,
     FILTER_NEWS,
     CLEAR_FILTER,
-    NEWS_ERROR 
+    NEWS_ERROR,
+    GET_NEWS 
 } from '../types';
 
 export default (state , action) => {
     switch(action.type) {
+        case GET_NEWS:
+            return{
+                ...state,
+                news: action.payload,
+                loading: false
+            }
         case ADD_NEWS:
         return{
             ...state,
-            news: [...state.news , action.payload]
+            news: [...state.news , action.payload],
+            loading: false
         };
         case DELETE_NEWS:
             return {
