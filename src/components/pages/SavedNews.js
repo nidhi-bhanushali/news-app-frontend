@@ -8,8 +8,10 @@ const SavedNews = () => {
 
     return (
         <Fragment>
-            {news.map(news => (
+            {news.map((news , index) => (
+                <div key = {index}>
                 <h3>{news.title}</h3>
+                </div>
             ))}
         </Fragment>
     )

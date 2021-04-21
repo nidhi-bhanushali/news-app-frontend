@@ -9,7 +9,7 @@ const News = () => {
         const getNewsArticles = () => {
             try {
                 setLoading(true)
-                fetch('https://api.jsonbin.io/b/607ee47cf099765deef85e5d')
+                fetch('https://server-backend-news.herokuapp.com/')
                 .then(res => res.json()).then(({articles}) => {
                     setNewsArticles(articles)
                     setLoading(false)
@@ -32,10 +32,11 @@ const News = () => {
             {
                 (newsArticles && loading) ? <h3>Loading...</h3>:(
                     newsArticles.map((newsArticle , index) => (
+                        <div key = {index}>
                         <NewsItem 
                         newsArticle = {newsArticle} 
-                        key = {index}
                         onClickHandler = {onClickHandler}/>
+                        </div>
                     ))
                 ) 
             }
