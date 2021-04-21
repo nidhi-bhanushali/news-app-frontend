@@ -1,5 +1,6 @@
 export const ADD_NEWS = 'ADD_NEWS';
 export const DELETE_NEWS = 'DELETE_NEWS';
+export const NEWS_ERROR = 'NEWS_ERROR'
 export const SET_CURRENT = 'SET_CURRENT';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 export const FILTER_NEWS = 'FILTER_NEWS';

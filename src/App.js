@@ -9,6 +9,7 @@ import Navbar from './components/layout/Navbar'
 import NewsState from './context/news/NewsState'
 import AuthState from './context/auth/AuthState'
 import setAuthToken from './utils/setAuthToken'
+import PrivateRoute from './components/routing/PrivateRoute'
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -23,8 +24,8 @@ function App() {
         <Navbar/>
         <div className = 'container'>
           <Switch>
-          <Route exact path = '/' component = {Home}/>
-          <Route exact path = '/saved' component = {SavedNews}/>
+          <PrivateRoute exact path = '/' component = {Home}/>
+          <PrivateRoute exact path = '/saved' component = {SavedNews}/>
           <Route exact path = '/register' component = {Register}/>
           <Route exact path = '/login' component = {Login}/>
           </Switch>

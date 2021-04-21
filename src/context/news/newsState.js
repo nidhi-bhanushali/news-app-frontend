@@ -1,10 +1,11 @@
 import React , { useReducer } from 'react';
-import {v4 as uuid} from 'uuid';
 import NewsContext from './newsContext';
 import newsReducer from './newsReducer';
+import axios from 'axios';
 import {
     ADD_NEWS,
     DELETE_NEWS,
+    NEWS_ERROR,
     SET_CURRENT,
     CLEAR_CURRENT,
     FILTER_NEWS,
@@ -13,34 +14,29 @@ import {
 
 const NewsState = props => {
     const initialState = {
-        news : [
-           { 
-            id: 1,
-            author:'xyz',
-            title: 'something related to tech',
-        },
-        { 
-            id: 2,
-            name:'abc',
-            title: 'technology',
-            
-        },
-        { 
-            id: 3,
-            author:'mno',
-            title: 'bjbkjhnlknlk'
-        }
-    ],
-    current: null,
-    filtered : null
+        news : [],
+        current: null,
+        filtered : null,
+        error:null
     };
 
     const [state, dispatch] = useReducer(newsReducer , initialState);
 
     // Add news
-    const addNews = news => {
-        news.id = uuid();
-        dispatch({ type: ADD_NEWS , payload: news });
+    const addNews = async news => {
+        const config = {
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }
+
+        try {
+            const res = axios.post('/api/news' , news, config);
+
+            dispatch({ type: ADD_NEWS , payload: res.data });
+        } catch (err) {
+            dispatch({ type: NEWS_ERROR, payload: err.message })
+        }
     };
 
     // Delete news
@@ -74,6 +70,7 @@ const NewsState = props => {
             news: state.news,
             current: state.current,
             filtered: state.filtered,
+            error:state.error,
             addNews ,
             deleteNews,
             setCurrent,

@@ -4,7 +4,8 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT,
     FILTER_NEWS,
-    CLEAR_FILTER 
+    CLEAR_FILTER,
+    NEWS_ERROR 
 } from '../types';
 
 export default (state , action) => {
@@ -42,6 +43,11 @@ export default (state , action) => {
                 ...state,
                 filtered : null
             };
+        case NEWS_ERROR:
+            return{
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }

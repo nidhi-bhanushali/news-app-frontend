@@ -1,9 +1,14 @@
-import React , { useState , useEffect } from 'react';
+import React , { useState , useEffect, useContext } from 'react';
 import NewsItem from './NewsItem'
+import NewsContext from '../../context/news/newsContext'
+
 
 const News = () => {
     const [newsArticles , setNewsArticles] = useState([])
     const [loading , setLoading] = useState(false)
+
+    const newsContext = useContext(NewsContext)
+    const { addNews } = newsContext
 
     useEffect(() => {
         const getNewsArticles = () => {
@@ -13,7 +18,7 @@ const News = () => {
                 .then(res => res.json()).then(({articles}) => {
                     setNewsArticles(articles)
                     setLoading(false)
-                    console.log(articles)
+                    // console.log(articles)
                 })
             } catch (error) {
                 console.error(error.message);
@@ -23,8 +28,14 @@ const News = () => {
         getNewsArticles()
     }, [])
 
-    const onClickHandler = () => {
-        console.log('Button clicked');
+    const onClickHandler = (e) => {
+        e.preventDefault()
+        // console.log(e.target.id)
+        let newsArticlesEl = newsArticles.filter((article , index) => index === Number(e.target.id))
+        newsArticlesEl = newsArticlesEl[0]
+        // console.log(newsArticlesEl)
+        addNews(newsArticlesEl)
+        // console.log('Button clicked');
     }
 
     return (
@@ -35,7 +46,8 @@ const News = () => {
                         <div key = {index}>
                         <NewsItem 
                         newsArticle = {newsArticle} 
-                        onClickHandler = {onClickHandler}/>
+                        onClickHandler = {onClickHandler}
+                        index = {index}/>
                         </div>
                     ))
                 ) 
