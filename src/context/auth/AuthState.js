@@ -32,7 +32,7 @@ const AuthState = props => {
     }
 
     try {
-      const res = await axios.get('https://salty-beach-74341.herokuapp.com/api/auth');
+      const res = await axios.get('https://news-app-api-intern.herokuapp.com/api/auth');
 
       dispatch({
         type: USER_LOADED,
@@ -52,7 +52,7 @@ const AuthState = props => {
     };
 
     try {
-      const res = await axios.post('https://salty-beach-74341.herokuapp.com/api/users', formData, config);
+      const res = await axios.post('https://news-app-api-intern.herokuapp.com/api/users', formData, config);
 
       dispatch({
         type: REGISTER_SUCCESS,
@@ -77,7 +77,7 @@ const AuthState = props => {
     };
 
     try {
-      const res = await axios.post('https://salty-beach-74341.herokuapp.com/api/auth', formData, config);
+      const res = await axios.post('https://news-app-api-intern.herokuapp.com/api/auth', formData, config);
 
       dispatch({
         type: LOGIN_SUCCESS,

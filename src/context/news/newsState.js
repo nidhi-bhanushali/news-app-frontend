@@ -23,7 +23,7 @@ const NewsState = props => {
     // Get news
     const getNews = async () => {
         try {
-            const res = await axios.get('https://salty-beach-74341.herokuapp.com/api/news');
+            const res = await axios.get('https://news-app-api-intern.herokuapp.com/api/news');
 
             dispatch({ type: GET_NEWS , payload: res.data });
         } catch (err) {
@@ -40,7 +40,7 @@ const NewsState = props => {
         }
 
         try {
-            const res = await axios.post('https://salty-beach-74341.herokuapp.com/api/news' , news, config);
+            const res = await axios.post('https://news-app-api-intern.herokuapp.com/api/news' , news, config);
 
             dispatch({ type: ADD_NEWS , payload: res.data });
         } catch (err) {
